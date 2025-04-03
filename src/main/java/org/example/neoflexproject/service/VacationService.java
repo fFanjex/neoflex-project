@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 public class VacationService {
 
     public double calculateVacation(VacationCalculator vacationCalculator) {
-        return Math.round((vacationCalculator.getSalary() / 12 / 29.3) * vacationCalculator.getVacationDays());
+
+        double avgDaySalary = vacationCalculator.getSalary() / 12 / 29.3;
+        return Math.round((avgDaySalary * vacationCalculator.getVacationDays()) * 100.0) / 100.0;
     }
 }
