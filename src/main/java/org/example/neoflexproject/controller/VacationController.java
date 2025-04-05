@@ -3,7 +3,6 @@ package org.example.neoflexproject.controller;
 import lombok.AllArgsConstructor;
 import org.example.neoflexproject.model.VacationCalculator;
 import org.example.neoflexproject.service.VacationService;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
