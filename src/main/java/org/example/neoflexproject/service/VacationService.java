@@ -35,7 +35,6 @@ public class VacationService {
     }
 
     private boolean isHoliday(LocalDate date) {
-        return date.getDayOfWeek() == DayOfWeek.SATURDAY || date.getDayOfWeek() == DayOfWeek.SUNDAY
-                || fixedHolidays.contains(date.toString());
+        return fixedHolidays.contains(date.toString());
     }
 }
