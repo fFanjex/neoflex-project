@@ -12,16 +12,16 @@ public class VacationServiceTest {
 
     @Test
     public void testCalculateVacation() {
-        VacationCalculator vacationCalculator = new VacationCalculator(600000, 28);
-        double expected = 47781.57;
+        VacationCalculator vacationCalculator = new VacationCalculator(50000, 14);
+        double expected = 23890.78;
         double actual = vacationService.calculateVacation(vacationCalculator);
         assertEquals(expected, actual);
     }
 
     @Test
     public void testCalculateVacation2() {
-        VacationCalculator vacationCalculator = new VacationCalculator(1000000, 14);
-        double expected = 39817.97;
+        VacationCalculator vacationCalculator = new VacationCalculator(120000, 28);
+        double expected = 114675.77;
         double actual = vacationService.calculateVacation(vacationCalculator);
         assertEquals(expected, actual);
     }

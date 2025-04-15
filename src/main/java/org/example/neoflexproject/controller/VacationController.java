@@ -13,23 +13,23 @@ import java.util.List;
 @RequestMapping("/calculate")
 @AllArgsConstructor
 public class VacationController {
+
     private final VacationService vacationService;
 
     @GetMapping
     public double vacationPay(@RequestParam double salary,
                               @RequestParam int vacationDays,
                               @RequestParam(required = false) String startDate) {
+
         VacationCalculator vacationCalculator = new VacationCalculator(salary, vacationDays);
 
         if (startDate == null) {
             return vacationService.calculateVacation(vacationCalculator);
         } else {
             LocalDate start = LocalDate.parse(startDate);
-            List<LocalDate> vacationDates = new ArrayList<>();
-            for (int i = 0; i < vacationDays; i++) {
-                vacationDates.add(start.plusDays(i));
-            }
+            List<LocalDate> vacationDates = vacationService.generateVacationDates(start, vacationDays);
             return vacationService.calculateVacationWithHolidays(vacationCalculator, vacationDates);
         }
     }
+
 }
